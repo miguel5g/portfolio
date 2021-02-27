@@ -19,8 +19,8 @@ const CardProfile: React.FC = () => (
     </Info>
 
     <Info>
-      <span>Telefone</span>
-      <strong>(81) 9 9311-9897</strong>
+      <span>Discord</span>
+      <strong>Guel#3451</strong>
     </Info>
 
     <Info>
