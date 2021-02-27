@@ -17,6 +17,10 @@ export const Title = styled.h3`
   font-weight: 600;
 
   z-index: 1;
+
+  @media (max-width: 926px) {
+    text-align: center;
+  }
 `;
 
 export const ProjectList = styled.div`
@@ -26,6 +30,11 @@ export const ProjectList = styled.div`
   flex: 1;
 
   margin: 0 auto;
+
+  @media (max-width: 926px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Project = styled(Box)`
@@ -41,6 +50,13 @@ export const Project = styled(Box)`
     border-radius: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+  }
+
+  @media (max-width: 926px) {
+    align-items: center;
+
+    width: 100%;
+    max-width: 500px
   }
 `;
 

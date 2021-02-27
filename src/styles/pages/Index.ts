@@ -11,6 +11,12 @@ export const Container = styled.div`
     max-width: 960px;
     padding: 30px 60px;
   }
+
+  @media (max-width: 926px) {
+    & > main {
+      padding: 10px 20px;
+    }
+  }
 `;
 
 export const UserContainer = styled.div`
@@ -23,5 +29,18 @@ export const UserContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr;
     gap: 60px;
+  }
+
+  @media (max-width: 926px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & section, & section:not(:first-child) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
   }
 `;

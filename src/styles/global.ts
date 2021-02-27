@@ -28,10 +28,6 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 
-  :root {
-    font-size: 100%;
-  }
-
   button {
     cursor: pointer;
   }

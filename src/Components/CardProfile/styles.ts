@@ -17,6 +17,11 @@ export const Container = styled(Box)`
 
     border-radius: 50%;
   }
+
+  @media (max-width: 926px) {
+    width: 100%;
+    max-width: 500px
+  }
 `;
 
 export const Name = styled.h1`

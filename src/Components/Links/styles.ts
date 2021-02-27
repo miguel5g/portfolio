@@ -16,6 +16,11 @@ export const Container = styled(Box)`
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  @media (max-width: 926px) {
+    width: 100%;
+    max-width: 500px
+  }
 `;
 
 export const Title = styled.h3`

@@ -15,4 +15,8 @@ export const Container = styled(Box)`
   font-family: 'Comfortaa', cursive;
   font-size: 1.3rem;  
   font-weight: 600;
+
+  @media (max-width: 926px) {
+    text-align: center;
+  }
 `;

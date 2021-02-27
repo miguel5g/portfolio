@@ -10,6 +10,11 @@ export const Container = styled(Box)`
   padding: 30px;
 
   border-radius: 10px;
+
+  @media (max-width: 926px) {
+    width: 100%;
+    max-width: 500px
+  }
 `;
 
 export const Title = styled.h3`
@@ -24,4 +29,8 @@ export const Title = styled.h3`
 export const Resume = styled.p`
   font-size: 1.3rem;  
   font-weight: 300;
+
+  @media (max-width: 926px) {
+    text-align: center;
+  }
 `;

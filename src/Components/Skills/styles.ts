@@ -11,11 +11,19 @@ export const Title = styled.h3`
   font-family: 'Comfortaa', cursive;
   font-size: 2rem;  
   font-weight: 600;
+
+  @media (max-width: 926px) {
+    text-align: center;
+  }
 `;
 
 export const SkillContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  @media (max-width: 926px) {
+    justify-content: center;
+  }
 `;
 
 export const Skill = styled.div`

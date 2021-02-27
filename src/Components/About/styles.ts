@@ -11,10 +11,18 @@ export const Title = styled.h3`
   font-family: 'Comfortaa', cursive;
   font-size: 2rem;  
   font-weight: 600;
+
+  @media (max-width: 926px) {
+    text-align: center;
+  }
 `;
 
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.text};
   font-size: 1.3rem;  
   font-weight: 300;
+
+  @media (max-width: 926px) {
+    text-align: center;
+  }
 `;
