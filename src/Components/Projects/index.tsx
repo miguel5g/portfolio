@@ -1,41 +1,65 @@
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
+import { IconType } from 'react-icons';
+import { FaGithub, FaEye } from 'react-icons/fa';
 
 import {
-  Container, Project, ProjectList, Title, ProjectTitle, ProjectLink,
+  Container,
+  Project,
+  ProjectList,
+  Title,
+  ProjectTitle,
+  ProjectLink,
 } from './styles';
+
+interface ProjectData {
+  title: string;
+  imageUrl: string;
+  links: [string, string, IconType][];
+}
+
+const projectList: ProjectData[] = [
+  {
+    title: 'Meu site pessoal',
+    imageUrl: '/projects/portfolio.png',
+    links: [['Github', 'https://github.com/miguel5g/portfolio', FaGithub]],
+  },
+  {
+    title: 'Taskfy',
+    imageUrl: '/projects/taskfy.png',
+    links: [
+      ['Github', 'https://github.com/miguel5g/taskfy', FaGithub],
+      ['Demo', 'http://taskfy.vercel.app/', FaEye],
+    ],
+  },
+];
 
 const Projects: React.FC = () => (
   <Container>
     <Title>Projetos</Title>
 
     <ProjectList>
-      <Project>
-        <img src="/projects/moevit.png" alt="Project thumb" />
-        <ProjectTitle>moevit - nlw#4</ProjectTitle>
-        <ProjectLink href="https://github.com/miguel5g/nlw-4-react" target="_blank" rel="noopener noreferrer">
-          <FaGithub />
-          Github
-        </ProjectLink>
-      </Project>
+      {projectList.map((project) => (
+        <Project key={project.title}>
+          <img src={project.imageUrl} alt="Project thumb" />
+          <ProjectTitle>{project.title}</ProjectTitle>
+          <div>
+            {project.links.map((link) => {
+              const Icon = link[2];
 
-      <Project>
-        <img src="/projects/portfolio.png" alt="Project thumb" />
-        <ProjectTitle>Meu site pessoal</ProjectTitle>
-        <ProjectLink href="https://github.com/miguel5g/portfolio" target="_blank" rel="noopener noreferrer">
-          <FaGithub />
-          Github
-        </ProjectLink>
-      </Project>
-
-      <Project>
-        <img src="/projects/feach.png" alt="Project thumb" />
-        <ProjectTitle>Feach Community</ProjectTitle>
-        <ProjectLink href="https://github.com/miguel5g/feach-web" target="_blank" rel="noopener noreferrer">
-          <FaGithub />
-          Github
-        </ProjectLink>
-      </Project>
+              return (
+                <ProjectLink
+                  href={link[1]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon />
+                  {link[0]}
+                </ProjectLink>
+              );
+            })}
+          </div>
+        </Project>
+      ))}
     </ProjectList>
   </Container>
 );

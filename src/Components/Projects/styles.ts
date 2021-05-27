@@ -46,10 +46,17 @@ export const Project = styled(Box)`
 
   & img {
     width: 100%;
+    height: 100%;
 
     border-radius: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+
+    object-fit: cover;
+  }
+
+  & > div {
+    display: flex;
   }
 
   @media (max-width: 926px) {
