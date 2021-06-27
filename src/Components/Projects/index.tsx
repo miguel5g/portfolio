@@ -19,6 +19,14 @@ interface ProjectData {
 
 const projectList: ProjectData[] = [
   {
+    title: 'Letmeask',
+    imageUrl: '/projects/letmeask.png',
+    links: [
+      ['Github', 'https://github.com/miguel5g/letmeask', FaGithub],
+      ['Demo', 'https://letmeask-live.web.app/', FaEye],
+    ],
+  },
+  {
     title: 'Meu site pessoal',
     imageUrl: '/projects/portfolio.png',
     links: [['Github', 'https://github.com/miguel5g/portfolio', FaGithub]],
@@ -43,11 +51,12 @@ const Projects: React.FC = () => (
           <img src={project.imageUrl} alt="Project thumb" />
           <ProjectTitle>{project.title}</ProjectTitle>
           <div>
-            {project.links.map((link) => {
+            {project.links.map((link, index) => {
               const Icon = link[2];
 
               return (
                 <ProjectLink
+                  key={index}
                   href={link[1]}
                   target="_blank"
                   rel="noopener noreferrer"
