@@ -39,6 +39,14 @@ const projectList: ProjectData[] = [
       ['Demo', 'http://taskfy.vercel.app/', FaEye],
     ],
   },
+  {
+    title: 'ToDo List',
+    imageUrl: '/projects/todo-list.png',
+    links: [
+      ['Github', 'https://github.com/miguel5g/ow-todo-list', FaGithub],
+      ['Demo', 'http://ow-todo.vercel.app/', FaEye],
+    ],
+  },
 ];
 
 const Projects: React.FC = () => (
