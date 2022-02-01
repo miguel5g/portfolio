@@ -69,8 +69,19 @@ export const Project = styled(Box)`
 
 export const ProjectTitle = styled.strong`
   margin: 10px;
+  margin-bottom: 0;
   color: ${({ theme }) => theme.colors.title};
   font-size: 1.3rem;  
+  font-weight: 300;
+
+  z-index: 1;
+`;
+
+export const ProjectDescription = styled.strong`
+  margin: 10px;
+  margin-top: 4px;
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 1rem;  
   font-weight: 300;
 
   z-index: 1;

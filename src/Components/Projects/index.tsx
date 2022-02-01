@@ -1,5 +1,4 @@
 import React from 'react';
-import { IconType } from 'react-icons';
 import { FaGithub, FaEye } from 'react-icons/fa';
 
 import {
@@ -9,51 +8,44 @@ import {
   Title,
   ProjectTitle,
   ProjectLink,
+  ProjectDescription,
 } from './styles';
 
-interface ProjectData {
+export interface ProjectData {
+  id: string;
   title: string;
+  description: string;
+  image: string;
   imageUrl: string;
-  links: [string, string, IconType][];
+  urls: [{ label: string; url: string }];
 }
 
-const projectList: ProjectData[] = [
-  {
-    title: 'Letmeask',
-    imageUrl: '/projects/letmeask.png',
-    links: [
-      ['Github', 'https://github.com/miguel5g/letmeask', FaGithub],
-      ['Demo', 'https://letmeask-live.web.app/', FaEye],
-    ],
-  },
-  {
-    title: 'Meu site pessoal',
-    imageUrl: '/projects/portfolio.png',
-    links: [['Github', 'https://github.com/miguel5g/portfolio', FaGithub]],
-  },
-  {
-    title: 'Taskfy',
-    imageUrl: '/projects/taskfy.png',
-    links: [
-      ['Github', 'https://github.com/miguel5g/taskfy', FaGithub],
-      ['Demo', 'http://taskfy.vercel.app/', FaEye],
-    ],
-  },
-  {
-    title: 'ToDo List',
-    imageUrl: '/projects/todo-list.png',
-    links: [
-      ['Github', 'https://github.com/miguel5g/ow-todo-list', FaGithub],
-      ['Demo', 'http://ow-todo.vercel.app/', FaEye],
-    ],
-  },
-];
+interface ProjectsProps {
+  projects: ProjectData[];
+}
 
-const Projects: React.FC = () => (
+const Projects: React.FC<ProjectsProps> = ({ projects }) => (
   <Container>
     <Title>Projetos</Title>
 
     <ProjectList>
+      {projects.map((project) => (
+        <Project key={project.id}>
+          <img src={project.imageUrl} alt="Project thumb" />
+          <ProjectTitle>{project.title}</ProjectTitle>
+          <ProjectDescription>{project.description}</ProjectDescription>
+          <div>
+            {project.urls.map((url) => (
+              <ProjectLink key={url.url} href={url.url} target="_blank">
+                {url.label === 'github' ? (<FaGithub />) : (<FaEye />)}
+                {url.label}
+              </ProjectLink>
+            ))}
+          </div>
+        </Project>
+      ))}
+
+      {/*
       {projectList.map((project) => (
         <Project key={project.title}>
           <img src={project.imageUrl} alt="Project thumb" />
@@ -77,6 +69,7 @@ const Projects: React.FC = () => (
           </div>
         </Project>
       ))}
+       */}
     </ProjectList>
   </Container>
 );
