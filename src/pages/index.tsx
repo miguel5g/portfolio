@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import { AboutSection } from '../components/AboutSection';
 import { Header } from '../components/Header';
 import { HeroSection } from '../components/HeroSection';
 
@@ -14,7 +15,7 @@ const Home = () => {
 
       <HeroSection />
 
-      {/* About */}
+      <AboutSection />
 
       {/* Skills */}
 
