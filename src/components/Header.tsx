@@ -15,7 +15,7 @@ const ListItem: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 flex justify-center w-full px-6 py-3 border-b border-gray-200">
+    <header className="sticky top-0 z-10 flex justify-center w-full px-6 py-3 border-b border-gray-200 backdrop-blur bg-white/95">
       {/* Header Wrapper */}
       <div className="flex items-center w-full max-w-6xl">
         {/* Logo */}
