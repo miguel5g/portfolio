@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: theme(spacing.2);
+
+    padding: theme(spacing.2) theme(spacing.6);
+
+    border-radius: theme(borderRadius.DEFAULT);
+
+    font-family: theme(fontFamily.sans);
+    font-weight: theme(fontWeight.medium);
+
+    @apply transition-colors;
+  }
+
+  .button[data-variant='primary'] {
+    background-color: theme(colors.cyan.400);
+    color: theme(colors.white);
+  }
+
+  .button[data-variant='secondary'] {
+    background-color: theme(colors.gray.100);
+    color: theme(colors.gray.600);
+  }
+
+  .button[data-variant='tertiary'] {
+    background-color: theme(colors.transparent);
+    color: theme(colors.gray.600);
+  }
+
+  .button[data-variant='primary']:hover {
+    background-color: theme(colors.cyan.500);
+  }
+
+  .button[data-variant='secondary']:hover {
+    background-color: theme(colors.gray.200);
+  }
+
+  .button[data-variant='tertiary']:hover {
+    background-color: theme(colors.gray.100);
+    color: theme(colors.gray.700);
+  }
+}
