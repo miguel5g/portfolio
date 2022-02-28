@@ -8,7 +8,7 @@ import { SkillsSection } from '../components/SkillsSection';
 
 const Home = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[url(/img/background.png)] bg-no-repeat bg-cover">
       <Head>
         <title>Miguel Ângelo - Desenvolvedor Web Júnior</title>
       </Head>
