@@ -5,7 +5,7 @@ export const AboutSection = () => {
       <div className="flex flex-col w-full max-w-5xl mx-auto">
         <h2 className="text-4xl font-medium">Sobre mim</h2>
 
-        <p className="mt-8 text-lg font-light text-justify">
+        <p className="mt-8 text-lg font-light text-gray-700">
           Hi 🖖, me chamo Miguel Ângelo!
           <br />
           <br />
