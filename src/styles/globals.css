@@ -9,9 +9,9 @@
     justify-content: center;
     gap: theme(spacing.2);
 
-    padding: theme(spacing.2) theme(spacing.6);
+    padding: theme(spacing.3) theme(spacing.6);
 
-    border-radius: theme(borderRadius.DEFAULT);
+    border-radius: theme(borderRadius.md);
 
     font-family: theme(fontFamily.sans);
     font-weight: theme(fontWeight.medium);
