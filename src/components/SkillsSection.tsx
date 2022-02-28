@@ -17,7 +17,7 @@ const SkillItem = ({ src, alt }: { src: string; alt: string }) => {
 
 export const SkillsSection = () => {
   return (
-    <section className="py-16">
+    <section className="px-6 py-8 lg:py-16">
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
         <h2 className="text-4xl font-medium text-center">Habilidades e Ferramentas</h2>
