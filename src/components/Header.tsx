@@ -10,7 +10,7 @@ const ListItem: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   ...rest
 }) => {
   return (
-    <li className="text-base font-light text-gray-600 transition-colors hover:text-gray-900">
+    <li className="flex text-base font-light text-gray-600 transition-colors hover:text-gray-900">
       <BaseAnchor className="px-4 py-2 transition-colors rounded hover:bg-gray-100" {...rest}>
         {children}
       </BaseAnchor>
@@ -35,7 +35,7 @@ export const Header = () => {
         <div className="flex justify-between w-full lg:w-max">
           {/* Logo */}
           <div>
-            <span className="text-4xl font-black">Brand</span>
+            <span className="text-4xl font-black">miguel5g</span>
           </div>
 
           <button className="p-2 lg:hidden" onClick={handleToggleMenu} aria-label="Abrir menu">
@@ -59,10 +59,10 @@ export const Header = () => {
           <nav className="lg:ml-8">
             <ul className="flex flex-col items-center gap-2 lg:flex-row">
               <ListItem href="#">Início</ListItem>
-              <ListItem href="#">Sobre</ListItem>
-              <ListItem href="#">Habilidades</ListItem>
-              <ListItem href="#">Projetos</ListItem>
-              <ListItem href="#">Contato</ListItem>
+              <ListItem href="#about">Sobre</ListItem>
+              <ListItem href="#skills">Habilidades</ListItem>
+              <ListItem href="#projects">Projetos</ListItem>
+              {/* <ListItem href="#contact">Contato</ListItem> */}
             </ul>
           </nav>
         </motion.div>

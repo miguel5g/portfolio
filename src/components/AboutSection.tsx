@@ -1,6 +1,6 @@
 export const AboutSection = () => {
   return (
-    <section className="px-6 py-8 lg:py-16">
+    <section className="px-6 py-8 lg:py-16" id="about">
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
         <h2 className="text-4xl font-medium text-center">Sobre mim</h2>

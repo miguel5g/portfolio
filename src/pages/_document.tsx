@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 class AppDocument extends Document {
   render() {
     return (
-      <Html lang="pt-BR">
+      <Html lang="pt-BR" className="scroll-smooth">
         <Head>
           {/* Primary Meta Tags */}
           <meta name="title" content="Miguel Ângelo - Desenvolvedor Front-End Web" />

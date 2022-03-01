@@ -7,7 +7,7 @@ export type ProjectsSectionProps = {
 
 export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
   return (
-    <section className="px-6 py-8 lg:py-16">
+    <section className="px-6 py-8 lg:py-16" id="projects">
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
         <h2 className="text-4xl font-medium text-center">Projetos</h2>
