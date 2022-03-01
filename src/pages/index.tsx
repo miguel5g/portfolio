@@ -17,7 +17,7 @@ const Home: NextPage<HomeProps> = ({ projects }) => {
   return (
     <div className="flex flex-col min-h-screen bg-[url(/img/background.png)] bg-no-repeat bg-cover">
       <Head>
-        <title>Miguel Ângelo - Desenvolvedor Web Júnior</title>
+        <title>Miguel Ângelo - Desenvolvedor Front-End Júnior</title>
       </Head>
 
       <Header />
