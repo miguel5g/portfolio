@@ -28,7 +28,7 @@ export const Header = () => {
   }
 
   return (
-    <header className="sticky top-0 z-10 flex justify-center w-full px-6 py-3 border-b border-gray-200 backdrop-blur bg-white/80">
+    <header className="sticky top-0 z-50 flex justify-center w-full px-6 py-3 border-b border-gray-200 backdrop-blur bg-white/80">
       {/* Header Wrapper */}
       <div className="flex flex-col items-center w-full max-w-md lg:max-w-6xl lg:flex-row">
         {/* Mobile View */}
