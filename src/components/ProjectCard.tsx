@@ -18,14 +18,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       <p className="mb-4 text-base font-light text-gray-700">{project.description}</p>
 
       <div className="flex gap-2 mt-auto">
-        {project.urls.reverse().map((url, index, array) => (
-          <ProjectLink
-            key={url.url}
-            label={url.label}
-            url={url.url}
-            isSmall={array.length === 2 && index === 1}
-            position={index}
-          />
+        {project.urls.map((url, index) => (
+          <ProjectLink key={url.url} label={url.label} url={url.url} position={index} />
         ))}
       </div>
     </div>

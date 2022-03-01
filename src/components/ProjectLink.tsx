@@ -3,17 +3,16 @@ import { FiEye, FiGithub } from 'react-icons/fi';
 type ProjectLinkProps = {
   label: string;
   url: string;
-  isSmall?: boolean;
   position?: number;
 };
 
-export const ProjectLink = ({ label, url, isSmall, position = 0 }: ProjectLinkProps) => {
+export const ProjectLink = ({ label, url, position = 0 }: ProjectLinkProps) => {
   const isGithub = label === 'Github';
   const isDemo = label === 'Demo';
 
   return (
     <a
-      className={['button w-full', isSmall && 'w-auto'].join(' ')}
+      className="button w-full"
       href={url}
       target="_blank"
       rel="noopener noreferrer"
@@ -22,7 +21,7 @@ export const ProjectLink = ({ label, url, isSmall, position = 0 }: ProjectLinkPr
     >
       {isGithub && <FiGithub />}
       {isDemo && <FiEye />}
-      {!isSmall && label}
+      {label}
     </a>
   );
 };
