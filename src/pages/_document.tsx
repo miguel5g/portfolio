@@ -12,6 +12,12 @@ class AppDocument extends Document {
             content="Aqui você vai encontrar tudo sobre mim, desde de como eu comecei até o que eu estou estudando hoje."
           />
           <meta name="theme-color" content="#22d3ee" />
+          <meta name="author" content="Miguel Ângelo" />
+          <meta name="robots" content="index" />
+          <meta
+            name="keywords"
+            content="React, ReactJS, HTML, CSS, JavaScript, Miguel Ângelo, Desenvolvedor, Front-End"
+          />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
