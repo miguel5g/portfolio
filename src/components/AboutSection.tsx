@@ -1,11 +1,31 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
 export const AboutSection = () => {
+  const [ref, inView] = useInView({
+    initialInView: true,
+    triggerOnce: true,
+  });
+
   return (
-    <section className="px-6 py-8 lg:py-16" id="about">
+    <section className="px-6 py-8 lg:py-16" id="about" ref={ref}>
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
-        <h2 className="text-4xl font-medium text-center">Sobre mim</h2>
+        <motion.h2
+          className="text-4xl font-medium text-center"
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          Sobre mim
+        </motion.h2>
 
-        <p className="mt-8 text-lg font-light text-gray-700">
+        <motion.p
+          className="mt-8 text-lg font-light text-gray-700"
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
+          transition={{ delay: 0.3 }}
+        >
           Olá 🖖! Me chamo <strong>Miguel Ângelo</strong>.
           <br />
           <br />
@@ -40,7 +60,7 @@ export const AboutSection = () => {
             sobre o que estou falando, tenho um pouco de dificuldade de me relacionar com as pessoas
             (timidez), mas estou trabalhando nisso.
           </span>
-        </p>
+        </motion.p>
       </div>
     </section>
   );

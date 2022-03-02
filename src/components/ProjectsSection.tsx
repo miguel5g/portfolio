@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { Project } from '../typings';
 import { ProjectCard } from './ProjectCard';
 
@@ -6,20 +8,42 @@ export type ProjectsSectionProps = {
 };
 
 export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    delay: 750,
+  });
+
   return (
-    <section className="px-6 py-8 lg:py-16" id="projects">
+    <section className="px-6 py-8 lg:py-16" id="projects" ref={ref}>
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
-        <h2 className="text-4xl font-medium text-center">Projetos</h2>
-        <p className="mt-2 text-base font-light text-center text-gray-700">
+        <motion.h2
+          className="text-4xl font-medium text-center"
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
+        >
+          Projetos
+        </motion.h2>
+        <motion.p
+          className="mt-2 text-base font-light text-center text-gray-700"
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
+          transition={{ delay: 0.1 }}
+        >
           Projetos que tenho o orgulho de compartilhar.
-        </p>
+        </motion.p>
 
         <ul className="flex flex-wrap justify-center gap-8 mt-16">
-          {projects.map((project) => (
-            <li className="w-full max-w-xs" key={project.id}>
+          {projects.map((project, index) => (
+            <motion.li
+              className="w-full max-w-xs"
+              key={project.id}
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
+              transition={{ delay: 0.2 + index * 0.05 }}
+            >
               <ProjectCard project={project} />
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>
