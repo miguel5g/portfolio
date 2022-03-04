@@ -9,7 +9,7 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className="flex flex-col w-full max-w-xs">
+    <div className="flex flex-col w-full h-full max-w-xs">
       <div className="relative h-48 overflow-hidden rounded-xl">
         <Image src={project.imageUrl} alt={project.title} layout="fill" objectFit="cover" />
       </div>
