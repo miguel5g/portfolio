@@ -48,7 +48,7 @@ export const ContactForm = () => {
       <TextAreaInput label="Mensagem" />
 
       <div className="mx-auto mt-4">
-        <Button type="submit">
+        <Button type="submit" disabled>
           <FiSend />
           <span>Enviar</span>
         </Button>
