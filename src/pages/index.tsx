@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
 import { AboutSection } from '../components/AboutSection';
+import { ContactSection } from '../components/ContactSection';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { HeroSection } from '../components/HeroSection';
@@ -30,7 +31,7 @@ const Home: NextPage<HomeProps> = ({ projects }) => {
 
       <ProjectsSection projects={projects} />
 
-      {/* Contact */}
+      <ContactSection />
 
       <Footer />
     </div>
