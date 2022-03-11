@@ -46,4 +46,22 @@
   .button[data-variant='tertiary']:hover {
     background-color: theme(colors.gray.100);
   }
+
+  .button[data-variant='primary']:disabled:hover {
+    background-color: theme(colors.cyan.900);
+  }
+
+  .button[data-variant='secondary']:disabled:hover {
+    background-color: theme(colors.gray.200);
+    color: theme(colors.gray.900);
+  }
+
+  .button[data-variant='tertiary']:disabled:hover {
+    background-color: theme(colors.transparent);
+  }
+
+  .button:disabled {
+    opacity: theme(opacity.60);
+    cursor: not-allowed;
+  }
 }
