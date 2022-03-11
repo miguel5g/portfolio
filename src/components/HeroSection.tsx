@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FiAtSign, FiBox } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 
-import { ButtonAnchor } from './AnchorButton';
+import { AnchorButton } from './AnchorButton';
 
 export const HeroSection = () => {
   const [ref, inView] = useInView({
@@ -30,14 +30,14 @@ export const HeroSection = () => {
 
           {/* Links */}
           <div className="flex flex-col items-center gap-2 mx-auto mt-8 lg:mx-0 md:flex-row">
-            <ButtonAnchor href="#contact">
+            <AnchorButton href="#contact">
               <FiAtSign className="text-lg" />
               <span>Entre em Contato</span>
-            </ButtonAnchor>
-            <ButtonAnchor href="#projects" variant="secondary">
+            </AnchorButton>
+            <AnchorButton href="#projects" variant="secondary">
               <FiBox className="text-lg" />
               <span>Meus Projetos</span>
-            </ButtonAnchor>
+            </AnchorButton>
           </div>
         </motion.div>
 
