@@ -11,4 +11,4 @@ My personal website source code.
 - [ ] Interactions
   - [ ] Emoji reactions
   - [ ] Commenting
-- [-] Animations
+- [x] Animations
