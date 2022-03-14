@@ -33,18 +33,16 @@ export default async function handler(request: NextApiRequest, response: NextApi
   try {
     const messageData = messageBuilder(name, subject, message, email);
 
-    const { data } = await api.post(`/channels/${channelId}/messages`, messageData);
-
-    console.log(data);
+    await api.post(`/channels/${channelId}/messages`, messageData);
 
     response.status(201).json({ message: 'message sent' });
-    return;
   } catch (error) {
+    console.error(error.message);
+
     if (error.response) {
-      console.error(error.message);
-      console.error(error.response.data.errors.embeds[0].fields[2]._errors);
+      console.error(error.response.data);
     }
+
     response.status(500).json({ error: 'internal server error' });
-    return;
   }
 }
