@@ -6,7 +6,7 @@ export const Button: React.FC<ButtonProps> = ({ children, variant, type, ...rest
   return (
     <button
       className="button"
-      type={'button' || type}
+      type={type || 'button'}
       data-variant={variant || 'primary'}
       {...rest}
     >
