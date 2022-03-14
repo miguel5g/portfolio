@@ -62,7 +62,7 @@ export const Header = () => {
               <ListItem href="#about">Sobre</ListItem>
               <ListItem href="#skills">Habilidades</ListItem>
               <ListItem href="#projects">Projetos</ListItem>
-              {/* <ListItem href="#contact">Contato</ListItem> */}
+              <ListItem href="#contact">Contato</ListItem>
             </ul>
           </nav>
         </motion.div>
