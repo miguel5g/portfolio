@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
         imageUrl: project.image_url,
       })),
     },
-    revalidate: 1000 * 60 * 60,
+    revalidate: 60 * 60, // 1 hour
   };
 };
 
