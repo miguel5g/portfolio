@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   FiGithub,
   FiLink,
@@ -23,14 +24,59 @@ const SocialAnchor: React.FC<{ href: string }> = ({ href, children }) => {
 };
 
 export const ContactForm = () => {
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [isLoading, setLoading] = useState(false);
+
+  async function handleSentMessage(event: React.FormEvent<HTMLFormElement>) {
+    console.log('here');
+
     event.preventDefault();
+
+    if (isLoading) return;
+
+    const data = {
+      name: name.trim(),
+      email: email ? email.trim() : undefined,
+      subject: subject.trim(),
+      message: message.trim(),
+    };
+
+    setLoading(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      setName('');
+      setEmail('');
+      setSubject('');
+      setMessage('');
+
+      alert('Mensagem enviada!');
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao enviar mensagem!');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <form
       className="flex flex-col w-full gap-2 p-6 bg-white rounded-lg shadow-md md:p-8"
-      onSubmit={handleSubmit}
+      onSubmit={handleSentMessage}
     >
       <h3 className="text-2xl text-center">Formulário de contato</h3>
       <p className="font-light text-center text-gray-700">
@@ -39,16 +85,35 @@ export const ContactForm = () => {
 
       <div className="mt-4" />
 
-      <TextInput label="Nome" description="Seu nome ou como eu poderia te chamar." />
+      <TextInput
+        label="Nome"
+        description="Seu nome ou como eu poderia te chamar."
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+      />
 
-      <TextInput label="Assunto" description="Sobre o que é a mensagem?" />
+      <TextInput
+        label="Assunto"
+        description="Sobre o que é a mensagem?"
+        value={subject}
+        onChange={(event) => setSubject(event.target.value)}
+      />
 
-      <TextInput label="Email" description="Seu melhor email." />
+      <TextInput
+        label="Email"
+        description="Seu melhor email."
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+      />
 
-      <TextAreaInput label="Mensagem" />
+      <TextAreaInput
+        label="Mensagem"
+        value={message}
+        onChange={(event) => setMessage(event.target.value)}
+      />
 
       <div className="mx-auto mt-4">
-        <Button type="submit" disabled>
+        <Button type="submit" disabled={isLoading}>
           <FiSend />
           <span>Enviar</span>
         </Button>
