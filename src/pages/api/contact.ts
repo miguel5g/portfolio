@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { messageBuilder } from '../../libs/messageBuilder';
-import { api } from '../../services/api';
+import { discordApi } from '../../services/apis';
 
 type ContactInput = {
   name?: string;
@@ -33,7 +33,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
   try {
     const messageData = messageBuilder(name, subject, message, email);
 
-    await api.post(`/channels/${channelId}/messages`, messageData);
+    await discordApi.post(`/channels/${channelId}/messages`, messageData);
 
     response.status(201).json({ message: 'message sent' });
   } catch (error) {
