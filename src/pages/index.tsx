@@ -8,6 +8,7 @@ import { Header } from '../components/Header';
 import { HeroSection } from '../components/HeroSection';
 import { ProjectsSection } from '../components/ProjectsSection';
 import { SkillsSection } from '../components/SkillsSection';
+import { githubApi } from '../services/apis';
 import { Project, ProjectRaw } from '../typings';
 
 type HomeProps = {
@@ -39,15 +40,11 @@ const Home: NextPage<HomeProps> = ({ projects }) => {
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const response = await fetch(
-    'https://raw.githubusercontent.com/miguel5g/projects/main/data/projects.json'
-  );
-
-  const projects: ProjectRaw[] = await response.json();
+  const { data } = await githubApi.get<ProjectRaw[]>('/miguel5g/projects/main/data/projects.json');
 
   return {
     props: {
-      projects: projects.map((project) => ({
+      projects: data.map((project) => ({
         ...project,
         imageUrl: project.image_url,
       })),

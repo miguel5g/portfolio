@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import {
   FiGithub,
@@ -47,15 +48,9 @@ export const ContactForm = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await axios.post('/api/contact', data);
 
-      if (!response.ok) {
+      if (response.status !== 201) {
         throw new Error(response.statusText);
       }
 
