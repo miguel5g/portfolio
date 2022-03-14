@@ -40,14 +40,27 @@ const Home: NextPage<HomeProps> = ({ projects }) => {
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const { data } = await githubApi.get<ProjectRaw[]>('/miguel5g/projects/main/data/projects.json');
+  let data: ProjectRaw[] = [];
+
+  try {
+    const response = await githubApi.get<ProjectRaw[]>(
+      '/miguel5g/projects/main/data/projects.json'
+    );
+
+    data = response.data;
+  } catch (error) {
+    console.error(error);
+  }
+
+  // Serialize the data to a format that can be used by the component
+  const projectsSerialized: Project[] = data.map((project) => ({
+    ...project,
+    imageUrl: project.image_url,
+  }));
 
   return {
     props: {
-      projects: data.map((project) => ({
-        ...project,
-        imageUrl: project.image_url,
-      })),
+      projects: projectsSerialized,
     },
     revalidate: 60 * 60, // 1 hour
   };
