@@ -1,28 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
-import {
-  FiGithub,
-  FiLink,
-  FiLinkedin as FiLinkedIn,
-  FiMail,
-  FiSend,
-  FiTwitch,
-  FiTwitter,
-  FiYoutube as FiYouTube,
-} from 'react-icons/fi';
+import { FiSend } from 'react-icons/fi';
 
-import { AnchorButton } from './AnchorButton';
-import { Button } from './Button';
-import { TextAreaInput } from './TextAreaInput';
-import { TextInput } from './TextInput';
-
-const SocialAnchor: React.FC<{ href: string }> = ({ href, children }) => {
-  return (
-    <AnchorButton href={href} target="_blank" rel="noopener noreferrer" variant="secondary">
-      {children}
-    </AnchorButton>
-  );
-};
+import { Button } from '../Button';
+import { TextAreaInput } from '../TextAreaInput';
+import { TextInput } from '../TextInput';
+import { SocialAnchorsContainer } from './SocialAnchorsContainer';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -70,7 +53,7 @@ export const ContactForm = () => {
 
   return (
     <form
-      className="flex flex-col w-full gap-2 p-6 bg-white rounded-lg shadow-md md:p-8"
+      className="flex flex-col w-full gap-2 p-6 rounded-lg bg-white/60 backdrop-blur md:p-8"
       onSubmit={handleSentMessage}
     >
       <h3 className="text-2xl text-center">Formulário de contato</h3>
@@ -107,6 +90,7 @@ export const ContactForm = () => {
         onChange={(event) => setMessage(event.target.value)}
       />
 
+      {/* Submit button */}
       <div className="mx-auto mt-4">
         <Button type="submit" disabled={isLoading}>
           <FiSend />
@@ -114,49 +98,16 @@ export const ContactForm = () => {
         </Button>
       </div>
 
+      {/* Separator */}
       <div className="relative my-6">
-        <div className="absolute inset-0 h-px bg-gray-200" />
-        <div className="absolute px-4 -translate-x-1/2 -translate-y-1/2 bg-white top-1/2 left-1/2 w-max">
+        <div className="absolute flex items-center justify-center w-full gap-6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+          <div className="flex-1 h-px bg-gray-200" />
           <span className="text-sm font-light text-gray-600">Ou</span>
+          <div className="flex-1 h-px bg-gray-200" />
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-4 md:flex-row">
-        <SocialAnchor href="https://github.com/miguel5g">
-          <FiGithub />
-          <span>Github</span>
-        </SocialAnchor>
-
-        <SocialAnchor href="https://www.linkedin.com/in/miguel5g/">
-          <FiLinkedIn />
-          <span>LinkedIn</span>
-        </SocialAnchor>
-
-        <SocialAnchor href="https://twitter.com/guel5g">
-          <FiTwitter />
-          <span>Twitter</span>
-        </SocialAnchor>
-
-        <SocialAnchor href="mailto:miguelcg958@gmail.com">
-          <FiMail />
-          <span>Email</span>
-        </SocialAnchor>
-
-        <SocialAnchor href="https://www.twitch.tv/miguel05g">
-          <FiTwitch />
-          <span>Twitch</span>
-        </SocialAnchor>
-
-        <SocialAnchor href="https://www.youtube.com/channel/UCBIH49ITq52oi5LYVcStZlA">
-          <FiYouTube />
-          <span>YouTube</span>
-        </SocialAnchor>
-
-        <SocialAnchor href="https://discordapp.com/users/342803796201832449/">
-          <FiLink />
-          <span>Discord</span>
-        </SocialAnchor>
-      </div>
+      <SocialAnchorsContainer />
     </form>
   );
 };

@@ -24,7 +24,7 @@ export const Footer = () => {
             href="https://github.com/miguel5g"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Github"
+            aria-label="GitHub"
           >
             <FiGithub />
           </SocialLink>
