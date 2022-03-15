@@ -1,6 +1,9 @@
+import { randomUUID } from 'crypto';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { serialize } from 'cookie';
 
 import { messageBuilder } from '../../libs/messageBuilder';
+import { RateLimit } from '../../libs/rateLimit';
 import { discordApi } from '../../services/apis';
 
 type ContactInput = {
@@ -10,9 +13,41 @@ type ContactInput = {
   message?: string;
 };
 
+const rateLimit = new RateLimit({
+  interval: 60_000, // 1 minute
+  uniqueTokenPerInterval: 500,
+  limit: 1,
+});
+
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   if (request.method !== 'POST') {
     response.status(405).end();
+    return;
+  }
+
+  let userTraceId = request.cookies.userTraceId;
+
+  if (!userTraceId) {
+    userTraceId = randomUUID();
+
+    response.setHeader(
+      'Set-Cookie',
+      serialize('userTraceId', userTraceId, {
+        httpOnly: true,
+        sameSite: 'strict',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      })
+    );
+  }
+
+  const limitResult = await rateLimit.check(userTraceId);
+
+  response.setHeader('X-RateLimit-Limit', String(rateLimit.limit));
+  response.setHeader('X-RateLimit-Remaining', String(limitResult));
+
+  if (limitResult === 0) {
+    response.status(429).json({ error: 'Too many requests' });
     return;
   }
 
