@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { FiSend } from 'react-icons/fi';
+import { FiBookmark, FiMail, FiMessageSquare, FiSend, FiUser } from 'react-icons/fi';
 
 import { Button } from '../Button';
 import { TextAreaInput } from '../TextAreaInput';
@@ -64,28 +64,49 @@ export const ContactForm = () => {
       <div className="mt-4" />
 
       <TextInput
-        label="Nome"
+        label={
+          <>
+            <FiUser />
+            <span>Nome</span>
+          </>
+        }
         description="Seu nome ou como eu poderia te chamar."
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
 
       <TextInput
-        label="Assunto"
+        label={
+          <>
+            <FiBookmark />
+            <span>Assunto</span>
+          </>
+        }
         description="Sobre o que é a mensagem?"
         value={subject}
         onChange={(event) => setSubject(event.target.value)}
       />
 
       <TextInput
-        label="Email"
-        description="Seu melhor email."
+        label={
+          <>
+            <FiMail />
+            <span>E-mail</span>
+          </>
+        }
+        description="Seu melhor email. (Não é obrigatório)"
+        type="email"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
       />
 
       <TextAreaInput
-        label="Mensagem"
+        label={
+          <>
+            <FiMessageSquare />
+            <span>Mensagem</span>
+          </>
+        }
         value={message}
         onChange={(event) => setMessage(event.target.value)}
       />
