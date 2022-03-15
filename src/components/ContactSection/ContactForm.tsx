@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 import { useState } from 'react';
 import { FiBookmark, FiMail, FiMessageSquare, FiSend, FiUser } from 'react-icons/fi';
 
@@ -15,8 +16,6 @@ export const ContactForm = () => {
   const [isLoading, setLoading] = useState(false);
 
   async function handleSentMessage(event: React.FormEvent<HTMLFormElement>) {
-    console.log('here');
-
     event.preventDefault();
 
     if (isLoading) return;
@@ -31,21 +30,20 @@ export const ContactForm = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('/api/contact', data);
+      const response = axios.post('/api/contact', data);
 
-      if (response.status !== 201) {
-        throw new Error(response.statusText);
-      }
+      toast.promise(response, {
+        loading: 'Enviando...',
+        success: 'Obrigado por entrar em contato!',
+        error: 'Algo deu errado :(',
+      });
 
       setName('');
       setEmail('');
       setSubject('');
       setMessage('');
-
-      alert('Mensagem enviada!');
     } catch (error) {
       console.error(error);
-      alert('Erro ao enviar mensagem!');
     } finally {
       setLoading(false);
     }
