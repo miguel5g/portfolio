@@ -4,64 +4,46 @@
 
 @layer components {
   .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: theme(spacing.2);
-
-    padding: theme(spacing.3) theme(spacing.6);
-
-    border-radius: theme(borderRadius.md);
-
-    font-family: theme(fontFamily.sans);
-    font-weight: theme(fontWeight.medium);
-
-    @apply transition-colors;
+    @apply flex items-center justify-center gap-2 px-6 py-3 text-base font-medium transition-colors rounded-md;
   }
 
   .button[data-variant='primary'] {
-    background-color: theme(colors.cyan.900);
-    color: theme(colors.white);
+    @apply text-white bg-cyan-900;
   }
 
   .button[data-variant='secondary'] {
-    background-color: theme(colors.gray.200);
-    color: theme(colors.gray.700);
+    @apply text-gray-700 bg-gray-200;
   }
 
   .button[data-variant='tertiary'] {
-    background-color: theme(colors.transparent);
-    color: theme(colors.gray.700);
+    @apply text-gray-700 bg-transparent;
   }
 
   .button[data-variant='primary']:hover {
-    background-color: theme(colors.cyan.800);
+    @apply text-white bg-cyan-800;
   }
 
   .button[data-variant='secondary']:hover {
-    background-color: theme(colors.gray.300);
-    color: theme(colors.gray.900);
+    @apply text-gray-900 bg-gray-300;
   }
 
   .button[data-variant='tertiary']:hover {
-    background-color: theme(colors.gray.100);
+    @apply bg-gray-100;
   }
 
   .button[data-variant='primary']:disabled:hover {
-    background-color: theme(colors.cyan.900);
+    @apply bg-cyan-900;
   }
 
   .button[data-variant='secondary']:disabled:hover {
-    background-color: theme(colors.gray.200);
-    color: theme(colors.gray.900);
+    @apply text-gray-700 bg-gray-200;
   }
 
   .button[data-variant='tertiary']:disabled:hover {
-    background-color: theme(colors.transparent);
+    @apply bg-transparent;
   }
 
   .button:disabled {
-    opacity: theme(opacity.60);
-    cursor: not-allowed;
+    @apply cursor-not-allowed opacity-60;
   }
 }
