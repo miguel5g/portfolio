@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { FiInfo } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 
 export const AboutSection = () => {
@@ -21,7 +22,7 @@ export const AboutSection = () => {
         </motion.h2>
 
         <motion.p
-          className="mt-8 text-lg font-light text-gray-700"
+          className="mt-8 text-lg font-light text-gray-700 text-justify"
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
           transition={{ delay: 0.3 }}
@@ -38,7 +39,8 @@ export const AboutSection = () => {
           também.
           <br />
           <br />
-          Alguns anos se passaram e então eu descobri o Python, e nesse momento minha mente explodiu
+          Alguns anos se passaram e então eu descobri o Python, e nesse momento minha mente{' '}
+          <strong>explodiu</strong>
           🤯, ali descobri todas as possibilidades que a programação me dava, e enquanto estudava,
           acabei esbarrando com um anúncio da Semana OmniStack 8.0, e me inscrevi claro, pois estava
           no meu melhor momento de descobrimentos, e essa foi uma das melhores escolhas que eu
@@ -47,19 +49,24 @@ export const AboutSection = () => {
           hype, mas pelo universo que ela engloba.
           <br />
           <br />
-          Hoje meu foco de estudos é o front-end, pois é nela que eu quero me especializar, ter um
-          contato mais próximo com o usuário final nos dar um sentimento que é difícil de explicar,
-          só sei que gosto 😊.
+          Hoje meu foco de estudos é o <strong>front-end</strong>, pois é nela que eu quero me
+          especializar, ter um contato mais próximo com o usuário final nos dar um sentimento que é
+          difícil de explicar, só sei que gosto 😊.
           <br />
           <br />
-          <strong>Versão resumida:</strong>{' '}
-          <span className="italic">
-            Sou uma pessoa autodidata que sempre dá o melhor de si para cumprir suas tarefas
-            independente de gostar ou não, tento sempre ser sincero sobre tudo, busco ajuda e sempre
-            admito meus erros, também sou uma pessoa que gosta de ouvir antes de falar e entender
-            sobre o que estou falando, tenho um pouco de dificuldade de me relacionar com as pessoas
-            (timidez), mas estou trabalhando nisso.
-          </span>
+          <div className="p-4 bg-gray-50 rounded-lg border-b border-gray-200">
+            <span className="flex items-center gap-2 justify-center">
+              <FiInfo />
+              <strong>Versão resumida</strong>
+            </span>
+            <span>
+              Sou uma pessoa autodidata que sempre dá o melhor de si para cumprir suas tarefas
+              independente de gostar ou não, tento sempre ser sincero sobre tudo, busco ajuda e
+              sempre admito meus erros, também sou uma pessoa que gosta de ouvir antes de falar e
+              entender sobre o que estou falando, tenho um pouco de dificuldade de me relacionar com
+              as pessoas (timidez), mas estou trabalhando nisso.
+            </span>
+          </div>
         </motion.p>
       </div>
     </section>
