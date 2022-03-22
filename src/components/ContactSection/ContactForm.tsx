@@ -1,56 +1,61 @@
+import type { FormHandles } from '@unform/core';
+
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { FiBookmark, FiMail, FiMessageSquare, FiSend, FiUser } from 'react-icons/fi';
+import { Form } from '@unform/web';
 
 import { Button } from '../Button';
 import { TextAreaInput } from '../TextAreaInput';
 import { TextInput } from '../TextInput';
 import { SocialAnchorsContainer } from './SocialAnchorsContainer';
 
+type ContactData = {
+  name: string;
+  email?: string;
+  subject: string;
+  message: string;
+};
+
 export const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
   const [isLoading, setLoading] = useState(false);
+  const formRef = useRef<FormHandles>();
 
-  async function handleSentMessage(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  const handleSentMessage = useCallback(
+    async (data: ContactData) => {
+      if (isLoading) return;
 
-    if (isLoading) return;
+      setLoading(true);
 
-    const data = {
-      name: name.trim(),
-      email: email ? email.trim() : undefined,
-      subject: subject.trim(),
-      message: message.trim(),
-    };
+      try {
+        /** @todo implement data validation */
 
-    setLoading(true);
+        const response = axios.post('/api/contact', data);
 
-    try {
-      const response = axios.post('/api/contact', data);
+        toast.promise(response, {
+          loading: 'Enviando...',
+          success: 'Obrigado por entrar em contato!',
+          error: 'Algo deu errado :(',
+        });
 
-      toast.promise(response, {
-        loading: 'Enviando...',
-        success: 'Obrigado por entrar em contato!',
-        error: 'Algo deu errado :(',
-      });
+        await response;
 
-      setName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
+        formRef.current.reset();
+      } catch (error) {
+        /** @todo set fields errors if it's validation error */
+
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [isLoading]
+  );
 
   return (
-    <form
+    <Form
+      ref={formRef}
       className="flex flex-col w-full gap-2 p-6 rounded-lg bg-white/60 backdrop-blur md:p-8"
       onSubmit={handleSentMessage}
     >
@@ -62,51 +67,47 @@ export const ContactForm = () => {
       <div className="mt-4" />
 
       <TextInput
+        name="name"
+        description="Seu nome ou como eu poderia te chamar."
         label={
           <>
             <FiUser />
             <span>Nome</span>
           </>
         }
-        description="Seu nome ou como eu poderia te chamar."
-        value={name}
-        onChange={(event) => setName(event.target.value)}
       />
 
       <TextInput
+        name="subject"
+        description="Sobre o que é a mensagem?"
         label={
           <>
             <FiBookmark />
             <span>Assunto</span>
           </>
         }
-        description="Sobre o que é a mensagem?"
-        value={subject}
-        onChange={(event) => setSubject(event.target.value)}
       />
 
       <TextInput
+        name="email"
+        description="Seu melhor email. (Não é obrigatório)"
+        type="email"
         label={
           <>
             <FiMail />
             <span>E-mail</span>
           </>
         }
-        description="Seu melhor email. (Não é obrigatório)"
-        type="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
       />
 
       <TextAreaInput
+        name="message"
         label={
           <>
             <FiMessageSquare />
             <span>Mensagem</span>
           </>
         }
-        value={message}
-        onChange={(event) => setMessage(event.target.value)}
       />
 
       {/* Submit button */}
@@ -127,6 +128,6 @@ export const ContactForm = () => {
       </div>
 
       <SocialAnchorsContainer />
-    </form>
+    </Form>
   );
 };

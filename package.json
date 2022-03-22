@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@unform/core": "^2.1.6",
+    "@unform/web": "^2.1.6",
     "axios": "^0.26.1",
     "cookie": "^0.4.2",
     "framer-motion": "^6.2.8",
