@@ -21,7 +21,8 @@
     "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1",
     "react-intersection-observer": "^8.33.1",
-    "react-use": "^17.3.2"
+    "react-use": "^17.3.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/cookie": "^0.4.1",

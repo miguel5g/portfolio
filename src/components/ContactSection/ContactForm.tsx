@@ -1,6 +1,7 @@
 import type { FormHandles } from '@unform/core';
 
 import axios from 'axios';
+import * as Yup from 'yup';
 import { toast } from 'react-hot-toast';
 import { useCallback, useRef, useState } from 'react';
 import { FiBookmark, FiMail, FiMessageSquare, FiSend, FiUser } from 'react-icons/fi';
@@ -29,7 +30,25 @@ export const ContactForm = () => {
       setLoading(true);
 
       try {
-        /** @todo implement data validation */
+        const schema = Yup.object().shape({
+          name: Yup.string()
+            .required('Nome é obrigatório')
+            .min(4, 'Nome deve ter no mínimo 4 caracteres')
+            .max(24, 'Nome deve ter no máximo 24 caracteres'),
+          email: Yup.string().email(),
+          subject: Yup.string()
+            .required('Assunto é obrigatório')
+            .min(4, 'Assunto deve ter no mínimo 4 caracteres')
+            .max(32, 'Assunto deve ter no máximo 24 caracteres'),
+          message: Yup.string()
+            .required('Mensagem é obrigatória')
+            .min(4, 'Mensagem deve ter no mínimo 4 caracteres')
+            .max(512, 'Mensagem deve ter no máximo 512 caracteres'),
+        });
+
+        await schema.validate(data, {
+          abortEarly: false,
+        });
 
         const response = axios.post('/api/contact', data);
 
@@ -43,7 +62,17 @@ export const ContactForm = () => {
 
         formRef.current.reset();
       } catch (error) {
-        /** @todo set fields errors if it's validation error */
+        if (error instanceof Yup.ValidationError) {
+          const validationErrors = {};
+
+          error.inner.forEach((validationError) => {
+            validationErrors[validationError.path] = validationError.message;
+          });
+
+          formRef.current.setErrors(validationErrors);
+
+          return;
+        }
 
         console.error(error);
       } finally {
@@ -102,6 +131,7 @@ export const ContactForm = () => {
 
       <TextAreaInput
         name="message"
+        description="O que deseja me contar?"
         label={
           <>
             <FiMessageSquare />
