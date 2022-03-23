@@ -10,7 +10,7 @@ type TextInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 
 export const TextInput = ({ name, label, description, ...rest }: TextInputProps) => {
   const inputRef = useRef<HTMLInputElement>();
-  const { fieldName, registerField } = useField(name);
+  const { fieldName, registerField, error, clearError } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -36,9 +36,11 @@ export const TextInput = ({ name, label, description, ...rest }: TextInputProps)
         ref={inputRef}
         type="text"
         className="px-2 pt-2 pb-1.5 rounded-lg font-light bg-gray-50 focus:bg-transparent border border-gray-200 outline-none transition-colors focus:border-cyan-900"
+        onFocus={clearError}
         {...rest}
       />
-      {description && <p className="text-xs font-light text-gray-700">{description}</p>}
+      {description && !error && <p className="text-xs font-light text-gray-700">{description}</p>}
+      {error && <p className="text-xs font-light text-red-600">{error}</p>}
     </label>
   );
 };
