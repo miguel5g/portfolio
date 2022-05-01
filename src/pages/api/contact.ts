@@ -54,14 +54,14 @@ export default async function handler(request: NextApiRequest, response: NextApi
   const { name, subject, email, message } = request.body as ContactInput;
 
   if (!name.trim() || !subject.trim() || !message.trim()) {
-    response.status(400).json({ error: 'name and message are required' });
+    response.status(400).json({ error: 'Missing required fields' });
     return;
   }
 
   const channelId = process.env.DISCORD_CHANNEL_ID;
 
   if (!channelId) {
-    response.status(500).json({ error: 'DISCORD_CHANNEL_ID is not set' });
+    response.status(500).json({ error: 'Something went wrong' });
     return;
   }
 
@@ -70,7 +70,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
     await discordApi.post(`/channels/${channelId}/messages`, messageData);
 
-    response.status(201).json({ message: 'message sent' });
+    response.status(201).json({ message: 'Message sent' });
   } catch (error) {
     console.error(error.message);
 
@@ -78,6 +78,6 @@ export default async function handler(request: NextApiRequest, response: NextApi
       console.error(error.response.data);
     }
 
-    response.status(500).json({ error: 'internal server error' });
+    response.status(500).json({ error: 'Something went wrong' });
   }
 }
