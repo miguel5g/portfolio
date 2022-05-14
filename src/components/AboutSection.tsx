@@ -13,7 +13,7 @@ export const AboutSection = () => {
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
         <motion.h2
-          className="text-4xl font-medium text-center"
+          className="text-4xl font-medium text-center text-gray-900 dark:text-white"
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
           transition={{ delay: 0.2 }}
@@ -22,7 +22,7 @@ export const AboutSection = () => {
         </motion.h2>
 
         <motion.p
-          className="mt-8 text-lg font-light text-gray-700 text-justify"
+          className="mt-8 text-lg font-light text-justify text-gray-600 dark:text-gray-300"
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
           transition={{ delay: 0.3 }}
@@ -54,10 +54,10 @@ export const AboutSection = () => {
           difícil de explicar, só sei que gosto 😊.
           <br />
           <br />
-          <div className="p-4 bg-gray-50 rounded-lg border-b border-gray-200">
-            <span className="flex items-center gap-2 justify-center">
+          <div className="p-4 border-b border-gray-200 rounded-lg dark:border-gray-900 bg-gray-50 dark:bg-gray-800">
+            <span className="flex items-center justify-center gap-2">
               <FiInfo />
-              <strong>Versão resumida</strong>
+              <strong className="text-gray-900 dark:text-white">Versão resumida</strong>
             </span>
             <span>
               Sou uma pessoa autodidata que sempre dá o melhor de si para cumprir suas tarefas
