@@ -21,10 +21,10 @@ export const HeroSection = () => {
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
         >
-          <h1 className="text-4xl font-bold text-center text-gray-900 lg:text-left lg:text-6xl">
+          <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white lg:text-left lg:text-6xl">
             Desenvolvedor Front-End Júnior focado em <span className="text-teal-400">ReactJS</span>
           </h1>
-          <p className="mt-2 text-base font-light text-center text-gray-600 lg:text-left">
+          <p className="mt-2 text-base font-light text-center text-gray-600 dark:text-gray-300 lg:text-left">
             Estudando todo ecossistema de tecnologias JavaScript, React, Next.js.
           </p>
 

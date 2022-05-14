@@ -11,7 +11,7 @@ const ListItem: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
 }) => {
   return (
     <li className="flex text-base font-light text-gray-600 transition-colors dark:text-gray-300 hover:dark:text-white hover:text-gray-900">
-      <BaseAnchor className="px-4 py-2 transition-colors rounded hover:bg-gray-100 dark:hover:bg-zinc-700" {...rest}>
+      <BaseAnchor className="px-4 py-2 transition-colors rounded hover:bg-gray-100 dark:hover:bg-gray-700" {...rest}>
         {children}
       </BaseAnchor>
     </li>
@@ -28,7 +28,7 @@ export const Header = () => {
   }
 
   return (
-    <header className="sticky top-0 z-50 flex justify-center w-full px-6 py-3 transition-colors border-b border-gray-200 dark:border-zinc-800 backdrop-blur bg-white/80 dark:bg-zinc-800/90">
+    <header className="sticky top-0 z-50 flex justify-center w-full px-6 py-3 transition-colors border-b border-gray-200 dark:border-gray-800 backdrop-blur bg-white/80 dark:bg-gray-800/80">
       {/* Header Wrapper */}
       <div className="flex flex-col items-center w-full max-w-md lg:max-w-6xl lg:flex-row">
         {/* Mobile View */}
