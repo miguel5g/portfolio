@@ -10,8 +10,8 @@ const ListItem: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   ...rest
 }) => {
   return (
-    <li className="flex text-base font-light text-gray-600 transition-colors hover:text-gray-900">
-      <BaseAnchor className="px-4 py-2 transition-colors rounded hover:bg-gray-100" {...rest}>
+    <li className="flex text-base font-light text-gray-600 transition-colors dark:text-gray-300 hover:dark:text-white hover:text-gray-900">
+      <BaseAnchor className="px-4 py-2 transition-colors rounded hover:bg-gray-100 dark:hover:bg-zinc-700" {...rest}>
         {children}
       </BaseAnchor>
     </li>
@@ -28,14 +28,14 @@ export const Header = () => {
   }
 
   return (
-    <header className="sticky top-0 z-50 flex justify-center w-full px-6 py-3 border-b border-gray-200 backdrop-blur bg-white/80">
+    <header className="sticky top-0 z-50 flex justify-center w-full px-6 py-3 transition-colors border-b border-gray-200 dark:border-zinc-800 backdrop-blur bg-white/80 dark:bg-zinc-800/90">
       {/* Header Wrapper */}
       <div className="flex flex-col items-center w-full max-w-md lg:max-w-6xl lg:flex-row">
         {/* Mobile View */}
         <div className="flex justify-between w-full lg:w-max">
           {/* Logo */}
           <div>
-            <span className="text-4xl font-black">miguel5g</span>
+            <span className="text-4xl font-black text-black dark:text-white">miguel5g</span>
           </div>
 
           <button className="p-2 lg:hidden" onClick={handleToggleMenu} aria-label="Abrir menu">
