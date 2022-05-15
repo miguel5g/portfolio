@@ -21,7 +21,7 @@ Código fonte do meu site pessoal.
 - [x] Sessão de projetos
 - [x] Sessão de contato
 - [x] Animações
-- [ ] Temas (dark e light)
+- [x] Temas (dark e light)
 - [ ] Suporte a vários idiomas
 - [ ] Sessão de integração com o thoughts
 - [ ] Sessão para exibir todos os meus artigos publicados

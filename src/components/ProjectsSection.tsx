@@ -18,14 +18,14 @@ export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
         <motion.h2
-          className="text-4xl font-medium text-center"
+          className="text-4xl font-medium text-center text-gray-900 dark:text-white"
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
         >
           Projetos
         </motion.h2>
         <motion.p
-          className="mt-2 text-base font-light text-center text-gray-700"
+          className="mt-2 text-base font-light text-center text-gray-600 dark:text-gray-300"
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: inView ? 0 : -200, opacity: inView ? 1 : 0 }}
           transition={{ delay: 0.1 }}

@@ -85,11 +85,11 @@ export const ContactForm = () => {
   return (
     <Form
       ref={formRef}
-      className="flex flex-col w-full gap-2 p-6 rounded-lg bg-white/60 backdrop-blur md:p-8"
+      className="flex flex-col w-full gap-2 p-6 rounded-lg bg-white/70 dark:bg-gray-900/40 backdrop-blur md:p-8"
       onSubmit={handleSentMessage}
     >
       <h3 className="text-2xl text-center">Formulário de contato</h3>
-      <p className="font-light text-center text-gray-700">
+      <p className="font-light text-center text-gray-600 dark:text-gray-300">
         Sinta-se a vontade para escrever o que quiser, mantendo o respeito!
       </p>
 
@@ -151,9 +151,9 @@ export const ContactForm = () => {
       {/* Separator */}
       <div className="relative my-6">
         <div className="absolute flex items-center justify-center w-full gap-6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-          <div className="flex-1 h-px bg-gray-200" />
-          <span className="text-sm font-light text-gray-600">Ou</span>
-          <div className="flex-1 h-px bg-gray-200" />
+          <div className="flex-1 h-px bg-gray-200 dark:bg-gray-800" />
+          <span className="text-sm font-light text-gray-600 dark:text-gray-300">Ou</span>
+          <div className="flex-1 h-px bg-gray-200 dark:bg-gray-800" />
         </div>
       </div>
 

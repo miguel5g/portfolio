@@ -4,10 +4,10 @@ import { SocialLink } from './SocialLink';
 
 export const Footer = () => {
   return (
-    <footer className="flex justify-center w-full px-6 py-3 border-t border-gray-200 backdrop-blur bg-white/95">
+    <footer className="flex justify-center w-full px-6 py-3 border-t border-gray-200 dark:border-gray-900 backdrop-blur bg-white/95 dark:bg-gray-900/80">
       {/* Footer Wrapper */}
       <div className="flex flex-col items-center justify-center w-full max-w-6xl gap-2 md:flex-row md:justify-between">
-        <p className="text-sm font-light text-gray-700">
+        <p className="text-sm font-light text-gray-600 dark:text-gray-300">
           &copy; {new Date().getFullYear()} - Todos os direitos reservados.
         </p>
 

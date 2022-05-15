@@ -30,16 +30,18 @@ export const TextInput = ({ name, label, description, ...rest }: TextInputProps)
 
   return (
     <label className="flex flex-col gap-1">
-      <span className="flex items-center gap-1 text-sm font-light">{label}</span>
+      <span className="flex items-center gap-1 text-sm font-light text-gray-900 dark:text-white">
+        {label}
+      </span>
       <input
         name={name}
         ref={inputRef}
         type="text"
-        className="px-2 pt-2 pb-1.5 rounded-lg font-light bg-gray-50 focus:bg-transparent border border-gray-200 outline-none transition-colors focus:border-cyan-900"
+        className="px-2 pt-2 pb-1.5 rounded-lg font-light bg-gray-50 dark:bg-gray-900 dark:border-gray-700 focus:bg-transparent border border-gray-200 outline-none transition-colors focus:border-cyan-900 dark:focus:border-cyan-900 text-gray-900 dark:text-gray-200 dark:focus:bg-transparent"
         onFocus={clearError}
         {...rest}
       />
-      {description && !error && <p className="text-xs font-light text-gray-700">{description}</p>}
+      {description && !error && <p className="text-xs font-light text-gray-600 dark:text-gray-300">{description}</p>}
       {error && <p className="text-xs font-light text-red-600">{error}</p>}
     </label>
   );
