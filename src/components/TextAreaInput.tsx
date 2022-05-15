@@ -34,11 +34,11 @@ export const TextAreaInput = ({ name, label, description, ...rest }: TextAreaInp
       <textarea
         name={name}
         ref={inputRef}
-        className="px-2 min-h-32 max-h-32 pt-2 pb-1.5 rounded-lg font-light bg-gray-50 focus:bg-transparent border border-gray-200 outline-none transition-colors focus:border-cyan-900"
+        className="min-h-32 max-h-32 px-2 pt-2 pb-1.5 rounded-lg font-light bg-gray-50 dark:bg-gray-900 dark:border-gray-700 focus:bg-transparent border border-gray-200 outline-none transition-colors focus:border-cyan-900 dark:focus:border-cyan-900 text-gray-900 dark:text-gray-200 dark:focus:bg-transparent"
         onFocus={clearError}
         {...rest}
       />
-      {description && !error && <p className="text-xs font-light text-gray-700">{description}</p>}
+      {description && !error && <p className="text-xs font-light text-gray-600 dark:text-gray-300">{description}</p>}
       {error && <p className="text-xs font-light text-red-600">{error}</p>}
     </label>
   );
