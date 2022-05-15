@@ -12,11 +12,11 @@
   }
 
   .button[data-variant='secondary'] {
-    @apply text-gray-700 bg-gray-200;
+    @apply text-gray-700 bg-gray-200 dark:bg-gray-700 dark:text-gray-300;
   }
 
   .button[data-variant='tertiary'] {
-    @apply text-gray-700 bg-transparent;
+    @apply text-gray-700 bg-transparent dark:text-gray-300;
   }
 
   .button[data-variant='primary']:hover {
@@ -24,11 +24,11 @@
   }
 
   .button[data-variant='secondary']:hover {
-    @apply text-gray-900 bg-gray-300;
+    @apply text-gray-900 bg-gray-300 dark:bg-gray-600 dark:text-white;
   }
 
   .button[data-variant='tertiary']:hover {
-    @apply bg-gray-100;
+    @apply bg-gray-100 dark:bg-gray-600 dark:text-white;
   }
 
   .button[data-variant='primary']:disabled:hover {
