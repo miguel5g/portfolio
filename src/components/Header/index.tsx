@@ -1,24 +1,20 @@
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { FiMoon, FiSun } from 'react-icons/fi';
 import { useWindowSize } from 'react-use';
-import { useTheme } from 'next-themes';
 
 import { NavItem } from './NavItem';
 import { MobileContainer } from './MobileContainer';
 
+const ToggleThemeButton = dynamic(() => import('./ToggleThemeButton'), { ssr: false });
+
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   const { width } = useWindowSize();
 
   function handleToggleMenu() {
     setIsMenuOpen((state) => !state);
-  }
-
-  function handleToggleTheme() {
-    setTheme(theme === 'light' ? 'dark' : 'light');
   }
 
   return (
@@ -50,14 +46,7 @@ export const Header = () => {
             </ul>
           </nav>
 
-          <button
-            className="px-3 py-2 lg:ml-auto min-w-[6rem] text-sm button"
-            data-variant="secondary"
-            onClick={handleToggleTheme}
-          >
-            {theme === 'dark' ? <FiSun /> : <FiMoon />}
-            <span>{theme === 'dark' ? 'Claro' : 'Escuro'}</span>
-          </button>
+          <ToggleThemeButton />
         </motion.div>
       </div>
     </header>
