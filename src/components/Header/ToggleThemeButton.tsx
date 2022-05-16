@@ -2,10 +2,11 @@ import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme } from 'next-themes';
 
 export const ToggleThemeButton = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme();
+  const themeName = theme === 'system' ? systemTheme : theme;
 
   function handleToggleTheme() {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(themeName === 'light' ? 'dark' : 'light');
   }
 
   return (
@@ -14,8 +15,8 @@ export const ToggleThemeButton = () => {
       data-variant="secondary"
       onClick={handleToggleTheme}
     >
-      {theme === 'dark' ? <FiSun /> : <FiMoon />}
-      <span>{theme === 'dark' ? 'Claro' : 'Escuro'}</span>
+      {themeName === 'dark' ? <FiSun /> : <FiMoon />}
+      <span>{themeName === 'dark' ? 'Claro' : 'Escuro'}</span>
     </button>
   );
 };
