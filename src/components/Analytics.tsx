@@ -1,23 +1,21 @@
-import { isSupported, setCurrentScreen } from 'firebase/analytics';
+import { getAnalytics, isSupported, setCurrentScreen } from 'firebase/analytics';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { analytics } from '../services/firebase';
+import { firebaseApp } from '../services/firebase';
 
 export const Analytics = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(process.env.NODE_ENV);
-
     if (process.env.NODE_ENV !== 'production') return;
 
     async function trackPageView() {
       const isSupportedAnalytics = await isSupported();
 
-      console.log('isSupportedAnalytics', isSupportedAnalytics);
-
       if (!isSupportedAnalytics) return;
+
+      const analytics = getAnalytics(firebaseApp);
 
       setCurrentScreen(analytics, location.pathname);
     }
