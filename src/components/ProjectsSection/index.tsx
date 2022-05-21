@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Project } from '../typings';
+import { Project } from '../../typings';
 import { ProjectCard } from './ProjectCard';
 
 export type ProjectsSectionProps = {
