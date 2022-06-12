@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { ProjectLink } from './ProjectLink';
-import { Project } from '../typings';
+import { Project } from '../../typings';
 
 type ProjectCardProps = {
   project: Project;

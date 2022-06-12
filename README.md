@@ -46,5 +46,5 @@ npm install
 3. Executar a aplicação:
 
 ```bash
-npm start:dev
+npm run start:dev
 ```
