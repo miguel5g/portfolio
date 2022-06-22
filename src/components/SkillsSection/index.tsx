@@ -10,7 +10,7 @@ export const SkillsSection = () => {
   });
 
   return (
-    <section className="px-6 py-8 lg:py-16" id="skills" ref={ref}>
+    <section className="px-6 py-8 lg:py-16 scroll-mt-16" id="skills" ref={ref}>
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
         <motion.h2
