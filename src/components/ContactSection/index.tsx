@@ -10,7 +10,7 @@ export const ContactSection = () => {
   });
 
   return (
-    <section className="px-6 py-8 lg:py-16" id="contact" ref={ref}>
+    <section className="px-6 py-8 lg:py-16 scroll-mt-16" id="contact" ref={ref}>
       {/* Content wrapper */}
       <div className="flex flex-col items-center w-full max-w-5xl mx-auto">
         {/* Form wrapper */}

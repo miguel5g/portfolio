@@ -14,7 +14,7 @@ export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
   });
 
   return (
-    <section className="px-6 py-8 lg:py-16" id="projects" ref={ref}>
+    <section className="px-6 py-8 lg:py-16 scroll-mt-16" id="projects" ref={ref}>
       {/* Content wrapper */}
       <div className="flex flex-col w-full max-w-5xl mx-auto">
         <motion.h2
