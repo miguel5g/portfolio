@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { SkillItem } from './SkillItem';
 
-export const SkillsSection = () => {
+export const SkillsSection: React.FC = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     delay: 750,

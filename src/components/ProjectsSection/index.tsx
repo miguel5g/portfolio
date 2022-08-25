@@ -7,7 +7,7 @@ export type ProjectsSectionProps = {
   projects: Project[];
 };
 
-export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
+export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     delay: 750,
