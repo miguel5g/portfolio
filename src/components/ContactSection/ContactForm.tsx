@@ -34,12 +34,12 @@ export const ContactForm = () => {
           name: Yup.string()
             .required('Nome é obrigatório')
             .min(4, 'Nome deve ter no mínimo 4 caracteres')
-            .max(24, 'Nome deve ter no máximo 24 caracteres'),
-          email: Yup.string().email(),
+            .max(32, 'Nome deve ter no máximo 32 caracteres'),
+          email: Yup.string().email('Você deve escrever um e-mail válido'),
           subject: Yup.string()
             .required('Assunto é obrigatório')
             .min(4, 'Assunto deve ter no mínimo 4 caracteres')
-            .max(32, 'Assunto deve ter no máximo 24 caracteres'),
+            .max(64, 'Assunto deve ter no máximo 64 caracteres'),
           message: Yup.string()
             .required('Mensagem é obrigatória')
             .min(4, 'Mensagem deve ter no mínimo 4 caracteres')
