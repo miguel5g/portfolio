@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { ContactForm } from './ContactForm';
 
-export const ContactSection = () => {
+export const ContactSection: React.FC = () => {
   const [ref, inView] = useInView({
     initialInView: true,
     triggerOnce: true,

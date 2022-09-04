@@ -1,15 +1,24 @@
 import type { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
 import { AboutSection } from '../components/AboutSection';
-import { ContactSection } from '../components/ContactSection';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { HeroSection } from '../components/HeroSection';
-import { ProjectsSection } from '../components/ProjectsSection';
-import { SkillsSection } from '../components/SkillsSection';
 import { githubApi } from '../services/apis';
 import { Project, ProjectRaw } from '../typings';
+
+const ContactSection = dynamic(
+  import('../components/ContactSection').then((module) => module.ContactSection)
+);
+const ProjectsSection = dynamic(
+  import('../components/ProjectsSection').then((module) => module.ProjectsSection),
+  { ssr: false }
+);
+const SkillsSection = dynamic(
+  import('../components/SkillsSection').then((module) => module.SkillsSection)
+);
 
 type HomeProps = {
   projects: Project[];
