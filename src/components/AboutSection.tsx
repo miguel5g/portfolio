@@ -34,10 +34,14 @@ export const AboutSection = () => {
             desistindo dessa empreitada, já que Java não é uma linguagem muito amigável para
             iniciantes sem um guia de aprendizado adequado.
           </p>
+          <br />
+          <br />
           <p>
             Tempos depois, decidi fazer um curso de Manutenção de Computadores, o que me
             proporcionou um entendimento mais aprofundado sobre hardware e também sobre software.
           </p>
+          <br />
+          <br />
           <p>
             Com o passar dos anos, conheci o Python e minha mente foi aberta para um universo de
             possibilidades 🤯. Enquanto estudava, me deparei com um anúncio da Semana OmniStack 8.0
@@ -46,6 +50,8 @@ export const AboutSection = () => {
             primeiro contato com JavaScript e decidi que seria minha linguagem principal, não por
             causa do hype, mas por causa do vasto universo que ela engloba.
           </p>
+          <br />
+          <br />
           <p>
             Hoje em dia, meu objetivo principal é me tornar um especialista em desenvolvimento web.
             Estou empregado na área como desenvolvedor full stack e estou empenhado em aprimorar
