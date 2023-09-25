@@ -39,6 +39,10 @@ export const SkillsSection: React.FC = () => {
           <SkillItem isInView={inView} position={6} src="docker" alt="Docker" />
           <SkillItem isInView={inView} position={7} src="firebase" alt="Firebase" />
           <SkillItem isInView={inView} position={8} src="tailwind" alt="TailwindCSS" />
+          <SkillItem isInView={inView} position={9} src="digital-ocean" alt="Digital Ocean" />
+          <SkillItem isInView={inView} position={10} src="github-actions" alt="Github Actions" />
+          <SkillItem isInView={inView} position={11} src="jest" alt="Jest" />
+          <SkillItem isInView={inView} position={11} src="postgresql" alt="PostgreSQL" />
         </ul>
       </div>
     </section>
